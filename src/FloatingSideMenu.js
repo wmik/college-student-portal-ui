@@ -8,7 +8,9 @@ function FloatingSideMenu() {
       <Menu.Item>
         <Menu.Header>Home</Menu.Header>
         <Menu.Menu>
-          <Menu.Item name="Dashboard" link />
+          <Menu.Item>
+            <Link to="home/dashboard">Dashboard</Link>
+          </Menu.Item>
           <Menu.Item name="Notifications" link />
         </Menu.Menu>
       </Menu.Item>
@@ -33,7 +35,9 @@ function FloatingSideMenu() {
           <Menu.Item>
             <Link to="settings/profile">Profile</Link>
           </Menu.Item>
-          <Menu.Item name="Account" link />
+          <Menu.Item name="Account">
+            <Link to="settings/account">Account</Link>
+          </Menu.Item>
           <Menu.Item name="Log out" link />
         </Menu.Menu>
       </Menu.Item>
