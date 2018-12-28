@@ -5,13 +5,15 @@ import { Router } from '@reach/router';
 import FloatingSideMenu from './FloatingSideMenu';
 import ProfileForm from './ProfileForm';
 import BreadcrumbNav from './BreadcrumbNav';
+import AccountForm from './AccountForm';
+import Dashboard from './Dashboard';
 
 function App() {
   return (
     <Fragment>
       <Grid padded stackable>
         <Grid.Row>
-          <Grid.Column>
+          <Grid.Column style={{ marginLeft: '3rem' }}>
             <BreadcrumbNav />
           </Grid.Column>
         </Grid.Row>
@@ -20,7 +22,9 @@ function App() {
         </Grid.Column>
         <Grid.Column width={10}>
           <Router>
+            <Dashboard path="home/dashboard" />
             <ProfileForm path="settings/profile" />
+            <AccountForm path="settings/account" />
           </Router>
         </Grid.Column>
       </Grid>
