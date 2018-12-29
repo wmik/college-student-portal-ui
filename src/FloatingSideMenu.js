@@ -11,7 +11,9 @@ function FloatingSideMenu() {
           <Menu.Item>
             <Link to="home/dashboard">Dashboard</Link>
           </Menu.Item>
-          <Menu.Item name="Notifications" link />
+          <Menu.Item>
+            <Link to="home/notifications">Notifications</Link>
+          </Menu.Item>
         </Menu.Menu>
       </Menu.Item>
       <Menu.Item>

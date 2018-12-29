@@ -10,6 +10,7 @@ import Dashboard from './Dashboard';
 import RegisterUnitsTable from './RegisterUnitsTable';
 import ProvisionalResultsTable from './ProvisionalResultsTable';
 import FeeStatementTable from './FeeStatementTable';
+import Notifications from './Notifications';
 
 function App() {
   return (
@@ -26,11 +27,12 @@ function App() {
         <Grid.Column width={10}>
           <Router>
             <Dashboard path="home/dashboard" />
-            <ProfileForm path="settings/profile" />
-            <AccountForm path="settings/account" />
+            <Notifications path="home/notifications" />
+            <FeeStatementTable path="financials/fee-statement" />
             <RegisterUnitsTable path="academics/register-units" />
             <ProvisionalResultsTable path="academics/provisional-results" />
-            <FeeStatementTable path="financials/fee-statement" />
+            <ProfileForm path="settings/profile" />
+            <AccountForm path="settings/account" />
           </Router>
         </Grid.Column>
       </Grid>
