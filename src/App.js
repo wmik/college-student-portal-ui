@@ -9,6 +9,7 @@ import AccountForm from './AccountForm';
 import Dashboard from './Dashboard';
 import RegisterUnitsTable from './RegisterUnitsTable';
 import ProvisionalResultsTable from './ProvisionalResultsTable';
+import FeeStatementTable from './FeeStatementTable';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <AccountForm path="settings/account" />
             <RegisterUnitsTable path="academics/register-units" />
             <ProvisionalResultsTable path="academics/provisional-results" />
+            <FeeStatementTable path="financials/fee-statement" />
           </Router>
         </Grid.Column>
       </Grid>

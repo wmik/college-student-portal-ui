@@ -17,7 +17,9 @@ function FloatingSideMenu() {
       <Menu.Item>
         <Menu.Header>Financials</Menu.Header>
         <Menu.Menu>
-          <Menu.Item name="Fees statement" link />
+          <Menu.Item>
+            <Link to="financials/fee-statement">Fees Statement</Link>
+          </Menu.Item>
           <Menu.Item name="Payment information" link />
         </Menu.Menu>
       </Menu.Item>

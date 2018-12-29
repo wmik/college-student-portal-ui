@@ -9,7 +9,12 @@ function Dashboard() {
         Quick links
       </Header>
       <Card.Group itemsPerRow={3} stackable>
-        <Card href="#" header="Financials" description="0" meta="see more" />
+        <Card
+          href="/financials/fee-statement"
+          header="Financials"
+          description="0"
+          meta="see more"
+        />
         <Card
           href="#"
           header="Exam Status"
