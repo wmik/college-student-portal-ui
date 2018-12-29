@@ -8,6 +8,7 @@ import BreadcrumbNav from './BreadcrumbNav';
 import AccountForm from './AccountForm';
 import Dashboard from './Dashboard';
 import RegisterUnitsTable from './RegisterUnitsTable';
+import ProvisionalResultsTable from './ProvisionalResultsTable';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <ProfileForm path="settings/profile" />
             <AccountForm path="settings/account" />
             <RegisterUnitsTable path="academics/register-units" />
+            <ProvisionalResultsTable path="academics/provisional-results" />
           </Router>
         </Grid.Column>
       </Grid>

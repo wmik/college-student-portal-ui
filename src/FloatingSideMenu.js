@@ -24,11 +24,12 @@ function FloatingSideMenu() {
       <Menu.Item>
         <Menu.Header>Academics</Menu.Header>
         <Menu.Menu>
-          <Menu.Item name="Provisional results" link />
           <Menu.Item>
-            <Link to="academics/register-units">Register units</Link>
+            <Link to="academics/provisional-results">Provisional Results</Link>
           </Menu.Item>
-          <Menu.Item name="Exam status" link />
+          <Menu.Item>
+            <Link to="academics/register-units">Register Units</Link>
+          </Menu.Item>
         </Menu.Menu>
       </Menu.Item>
       <Menu.Item>
@@ -37,10 +38,12 @@ function FloatingSideMenu() {
           <Menu.Item>
             <Link to="settings/profile">Profile</Link>
           </Menu.Item>
-          <Menu.Item name="Account">
+          <Menu.Item>
             <Link to="settings/account">Account</Link>
           </Menu.Item>
-          <Menu.Item name="Log out" link />
+          <Menu.Item>
+            <Link to="/">Log Out</Link>
+          </Menu.Item>
         </Menu.Menu>
       </Menu.Item>
     </Menu>
