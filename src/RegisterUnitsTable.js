@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component, Fragment } from 'react';
-import { Table, Checkbox, Button, Header } from 'semantic-ui-react';
+import { Table, Checkbox, Button, Header, Message } from 'semantic-ui-react';
+import HintMessage from './HintMessage';
 
 const tableData = [
   { unitCode: 'ICS2209', unitName: 'Communication Skills' },
@@ -41,6 +42,12 @@ export default class RegisterUnitsTable extends Component {
     return (
       <Fragment>
         <Header as="h3">Register units</Header>
+        <HintMessage>
+          <Message.Item>
+            Select a table header to sort the table using the selected key
+          </Message.Item>
+          <Message.Item>Toggle the slider to select the unit</Message.Item>
+        </HintMessage>
         <Table sortable celled fixed>
           <Table.Header>
             <Table.Row>

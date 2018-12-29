@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component, Fragment } from 'react';
-import { Table, Header } from 'semantic-ui-react';
+import { Table, Header, Message } from 'semantic-ui-react';
+import HintMessage from './HintMessage';
 
 const tableData = [
   {
@@ -61,6 +62,11 @@ export default class FeeStatementTable extends Component {
     return (
       <Fragment>
         <Header as="h3">Fee statement</Header>
+        <HintMessage>
+          <Message.Item>
+            Select a table header to sort the table using the selected key
+          </Message.Item>
+        </HintMessage>
         <Table sortable celled fixed>
           <Table.Header>
             <Table.Row>

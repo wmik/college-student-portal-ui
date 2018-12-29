@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import { Card, Header, Statistic } from 'semantic-ui-react';
+import { Card, Header, Statistic, Message } from 'semantic-ui-react';
 import AcademicTable from './AcademicTable';
+import HintMessage from './HintMessage';
 
 function Dashboard() {
   return (
@@ -27,9 +28,12 @@ function Dashboard() {
         </Card>
         <Card href="#" header="Something else" />
       </Card.Group>
-      <Header as="h3" style={{ marginBottom: '2rem', marginTop: '2.4rem' }}>
-        Latest academic performance
-      </Header>
+      <Header as="h3">Latest academic performance</Header>
+      <HintMessage>
+        <Message.Item>
+          Select a table header to sort the table using the selected key
+        </Message.Item>
+      </HintMessage>
       <AcademicTable />
     </Fragment>
   );
