@@ -25,7 +25,9 @@ function FloatingSideMenu() {
         <Menu.Header>Academics</Menu.Header>
         <Menu.Menu>
           <Menu.Item name="Provisional results" link />
-          <Menu.Item name="Register units" link />
+          <Menu.Item>
+            <Link to="academics/register-units">Register units</Link>
+          </Menu.Item>
           <Menu.Item name="Exam status" link />
         </Menu.Menu>
       </Menu.Item>

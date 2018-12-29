@@ -7,6 +7,7 @@ import ProfileForm from './ProfileForm';
 import BreadcrumbNav from './BreadcrumbNav';
 import AccountForm from './AccountForm';
 import Dashboard from './Dashboard';
+import RegisterUnitsTable from './RegisterUnitsTable';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Dashboard path="home/dashboard" />
             <ProfileForm path="settings/profile" />
             <AccountForm path="settings/account" />
+            <RegisterUnitsTable path="academics/register-units" />
           </Router>
         </Grid.Column>
       </Grid>
