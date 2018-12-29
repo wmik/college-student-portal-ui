@@ -5,7 +5,7 @@ function AccountForm() {
   return (
     <Form>
       <Grid.Row>
-        <Header as="h4">Change password</Header>
+        <Header as="h3">Change password</Header>
         <Form.Group widths="equal">
           <Form.Input fluid label="Old password" required />
           <Form.Input fluid label="New password" required />
