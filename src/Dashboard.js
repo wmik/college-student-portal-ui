@@ -12,9 +12,17 @@ function Dashboard() {
       <Card.Group itemsPerRow={3} stackable>
         <Card href="/financials/fee-statement">
           <Card.Content textAlign="center">
-            <Card.Header>Financials</Card.Header>
+            <Card.Header>Fee balance</Card.Header>
             <Statistic color="green" size="small">
               <Statistic.Value>0</Statistic.Value>
+            </Statistic>
+          </Card.Content>
+        </Card>
+        <Card href="/academics/register-units">
+          <Card.Content textAlign="center">
+            <Card.Header>Registered units</Card.Header>
+            <Statistic size="small" color="blue">
+              <Statistic.Value>7</Statistic.Value>
             </Statistic>
           </Card.Content>
         </Card>
@@ -26,7 +34,6 @@ function Dashboard() {
             </Statistic>
           </Card.Content>
         </Card>
-        <Card href="#" header="Something else" />
       </Card.Group>
       <Header as="h3">Latest academic performance</Header>
       <HintMessage>
