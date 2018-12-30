@@ -11,6 +11,7 @@ import RegisterUnitsTable from './RegisterUnitsTable';
 import ProvisionalResultsTable from './ProvisionalResultsTable';
 import FeeStatementTable from './FeeStatementTable';
 import Notifications from './Notifications';
+import PaymentInformation from './PaymentInformation';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Dashboard path="home/dashboard" />
             <Notifications path="home/notifications" />
             <FeeStatementTable path="financials/fee-statement" />
+            <PaymentInformation path="financials/payment-information" />
             <RegisterUnitsTable path="academics/register-units" />
             <ProvisionalResultsTable path="academics/provisional-results" />
             <ProfileForm path="settings/profile" />

@@ -22,7 +22,9 @@ function FloatingSideMenu() {
           <Menu.Item>
             <Link to="financials/fee-statement">Fees Statement</Link>
           </Menu.Item>
-          <Menu.Item name="Payment information" link />
+          <Menu.Item>
+            <Link to="financials/payment-information">Payment Information</Link>
+          </Menu.Item>
         </Menu.Menu>
       </Menu.Item>
       <Menu.Item>
