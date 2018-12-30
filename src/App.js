@@ -12,6 +12,8 @@ import ProvisionalResultsTable from './ProvisionalResultsTable';
 import FeeStatementTable from './FeeStatementTable';
 import Notifications from './Notifications';
 import PaymentInformation from './PaymentInformation';
+import MobileMenu from './MobileMenu';
+import Resize from './Resize';
 
 function App() {
   return (
@@ -36,7 +38,9 @@ function App() {
           </Grid.Column>
         </Grid.Row>
         <Grid.Column width={4}>
-          <FloatingSideMenu />
+          <Resize>
+            {state => (state.isMobile ? <MobileMenu /> : <FloatingSideMenu />)}
+          </Resize>
         </Grid.Column>
         <Grid.Column width={10}>
           <Router>
