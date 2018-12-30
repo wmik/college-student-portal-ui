@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component, Fragment } from 'react';
 import { Table, Checkbox, Button, Header, Message } from 'semantic-ui-react';
 import HintMessage from './HintMessage';
+import Resize from './Resize';
 
 const tableData = [
   { unitCode: 'ICS2209', unitName: 'Communication Skills' },
@@ -48,7 +49,7 @@ export default class RegisterUnitsTable extends Component {
           </Message.Item>
           <Message.Item>Toggle the slider to select the unit</Message.Item>
         </HintMessage>
-        <Table sortable celled fixed>
+        <Table sortable celled fixed unstackable>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Year of study: Y2S3</Table.HeaderCell>
@@ -58,12 +59,18 @@ export default class RegisterUnitsTable extends Component {
               >
                 Unit Code
               </Table.HeaderCell>
-              <Table.HeaderCell
-                sorted={column === 'unitName' ? direction : null}
-                onClick={this.handleSort('unitName')}
-              >
-                Unit Name
-              </Table.HeaderCell>
+              <Resize>
+                {state =>
+                  state.isMobile ? null : (
+                    <Table.HeaderCell
+                      sorted={column === 'unitName' ? direction : null}
+                      onClick={this.handleSort('unitName')}
+                    >
+                      Unit Name
+                    </Table.HeaderCell>
+                  )
+                }
+              </Resize>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -73,14 +80,20 @@ export default class RegisterUnitsTable extends Component {
                   <Checkbox slider />
                 </Table.Cell>
                 <Table.Cell>{unitCode}</Table.Cell>
-                <Table.Cell>{unitName}</Table.Cell>
+                <Resize>
+                  {state =>
+                    state.isMobile ? null : <Table.Cell>{unitName}</Table.Cell>
+                  }
+                </Resize>
               </Table.Row>
             ))}
           </Table.Body>
           <Table.Footer>
             <Table.Row>
-              <Table.HeaderCell />
-              <Table.HeaderCell colSpan="2">
+              <Resize>
+                {state => (state.isMobile ? null : <Table.HeaderCell />)}
+              </Resize>
+              <Table.HeaderCell colSpan={2}>
                 <Button size="small" color="green">
                   Register
                 </Button>

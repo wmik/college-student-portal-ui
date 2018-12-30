@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react';
+import Resize from './Resize';
 
 const tableData = [
   { unitCode: 'ICS2209', unitName: 'Communication Skills', grade: 'C' },
@@ -39,7 +40,7 @@ export default class AcademicTable extends Component {
     const { column, data, direction } = this.state;
 
     return (
-      <Table sortable celled fixed>
+      <Table sortable celled fixed unstackable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell
@@ -48,12 +49,18 @@ export default class AcademicTable extends Component {
             >
               Unit Code
             </Table.HeaderCell>
-            <Table.HeaderCell
-              sorted={column === 'unitName' ? direction : null}
-              onClick={this.handleSort('unitName')}
-            >
-              Unit Name
-            </Table.HeaderCell>
+            <Resize>
+              {state =>
+                state.isMobile ? null : (
+                  <Table.HeaderCell
+                    sorted={column === 'unitName' ? direction : null}
+                    onClick={this.handleSort('unitName')}
+                  >
+                    Unit Name
+                  </Table.HeaderCell>
+                )
+              }
+            </Resize>
             <Table.HeaderCell
               sorted={column === 'grade' ? direction : null}
               onClick={this.handleSort('grade')}
@@ -66,7 +73,11 @@ export default class AcademicTable extends Component {
           {_.map(data, ({ unitName, grade, unitCode }) => (
             <Table.Row key={unitCode}>
               <Table.Cell>{unitCode}</Table.Cell>
-              <Table.Cell>{unitName}</Table.Cell>
+              <Resize>
+                {state =>
+                  state.isMobile ? null : <Table.Cell>{unitName}</Table.Cell>
+                }
+              </Resize>
               <Table.Cell>{grade}</Table.Cell>
             </Table.Row>
           ))}

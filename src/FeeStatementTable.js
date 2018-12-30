@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component, Fragment } from 'react';
 import { Table, Header, Message } from 'semantic-ui-react';
 import HintMessage from './HintMessage';
+import Resize from './Resize';
 
 const tableData = [
   {
@@ -67,32 +68,42 @@ export default class FeeStatementTable extends Component {
             Select a table header to sort the table using the selected key
           </Message.Item>
         </HintMessage>
-        <Table sortable celled fixed>
+        <Table sortable celled fixed unstackable>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell
                 sorted={column === 'referenceNumber' ? direction : null}
                 onClick={this.handleSort('referenceNumber')}
               >
-                Reference number
+                <Resize>
+                  {state => (state.isMobile ? 'Ref no.' : 'Reference number')}
+                </Resize>
               </Table.HeaderCell>
-              <Table.HeaderCell
-                sorted={column === 'description' ? direction : null}
-                onClick={this.handleSort('description')}
-              >
-                Description
-              </Table.HeaderCell>
+              <Resize>
+                {state =>
+                  state.isMobile ? null : (
+                    <Table.HeaderCell
+                      sorted={column === 'description' ? direction : null}
+                      onClick={this.handleSort('description')}
+                    >
+                      Description
+                    </Table.HeaderCell>
+                  )
+                }
+              </Resize>
               <Table.HeaderCell
                 sorted={column === 'debit' ? direction : null}
                 onClick={this.handleSort('debit')}
               >
-                Debit amount
+                Debit
+                <Resize>{state => (state.isMobile ? null : ' amount')}</Resize>
               </Table.HeaderCell>
               <Table.HeaderCell
                 sorted={column === 'credit' ? direction : null}
                 onClick={this.handleSort('credit')}
               >
-                Credit amount
+                Credit
+                <Resize>{state => (state.isMobile ? null : ' amount')}</Resize>
               </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -100,7 +111,13 @@ export default class FeeStatementTable extends Component {
             {_.map(data, ({ description, debit, referenceNumber, credit }) => (
               <Table.Row key={referenceNumber}>
                 <Table.Cell>{referenceNumber}</Table.Cell>
-                <Table.Cell>{description}</Table.Cell>
+                <Resize>
+                  {state =>
+                    state.isMobile ? null : (
+                      <Table.Cell>{description}</Table.Cell>
+                    )
+                  }
+                </Resize>
                 <Table.Cell>{debit}</Table.Cell>
                 <Table.Cell>{credit}</Table.Cell>
               </Table.Row>
