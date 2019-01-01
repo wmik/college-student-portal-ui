@@ -7,9 +7,11 @@ function isMobile() {
 function Resize({ children }) {
   const [state, set] = useState(() => ({ isMobile: isMobile() }));
   useEffect(() => {
-    window.addEventListener('resize', () => {
+    const setMobile = () => {
       set({ isMobile: isMobile() });
-    });
+    };
+    window.addEventListener('resize', setMobile);
+    return () => window.removeEventListener('resize', setMobile);
   });
   return children(state);
 }
