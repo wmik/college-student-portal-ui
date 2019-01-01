@@ -37,11 +37,17 @@ function App() {
             </Location>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Column width={4}>
-          <Resize>
-            {state => (state.isMobile ? <MobileMenu /> : <FloatingSideMenu />)}
-          </Resize>
-        </Grid.Column>
+        <Resize>
+          {state =>
+            state.isMobile ? (
+              <MobileMenu />
+            ) : (
+              <Grid.Column width={4}>
+                <FloatingSideMenu />
+              </Grid.Column>
+            )
+          }
+        </Resize>
         <Grid.Column width={10}>
           <Router>
             <Dashboard path="home/dashboard" />
@@ -54,6 +60,11 @@ function App() {
             <AccountForm path="settings/account" />
           </Router>
         </Grid.Column>
+        <Resize>
+          {state =>
+            state.isMobile ? <Grid.Row style={{ marginTop: '8rem' }} /> : null
+          }
+        </Resize>
       </Grid>
     </Fragment>
   );
