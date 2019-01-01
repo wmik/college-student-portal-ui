@@ -31,7 +31,7 @@ const tableData = [
   }
 ];
 
-export default class FeeStatementTable extends Component {
+class FeeStatementTable extends Component {
   state = {
     column: null,
     data: tableData,
@@ -61,70 +61,76 @@ export default class FeeStatementTable extends Component {
     const { column, data, direction } = this.state;
 
     return (
-      <Fragment>
-        <Header as="h3">Fee statement</Header>
-        <HintMessage>
-          <Message.Item>
-            Select a table header to sort the table using the selected key
-          </Message.Item>
-        </HintMessage>
-        <Table sortable celled fixed unstackable>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell
-                sorted={column === 'referenceNumber' ? direction : null}
-                onClick={this.handleSort('referenceNumber')}
-              >
-                <Resize>
-                  {state => (state.isMobile ? 'Ref no.' : 'Reference number')}
-                </Resize>
-              </Table.HeaderCell>
+      <Table sortable celled fixed unstackable>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell
+              sorted={column === 'referenceNumber' ? direction : null}
+              onClick={this.handleSort('referenceNumber')}
+            >
+              <Resize>
+                {state => (state.isMobile ? 'Ref no.' : 'Reference number')}
+              </Resize>
+            </Table.HeaderCell>
+            <Resize>
+              {state =>
+                state.isMobile ? null : (
+                  <Table.HeaderCell
+                    sorted={column === 'description' ? direction : null}
+                    onClick={this.handleSort('description')}
+                  >
+                    Description
+                  </Table.HeaderCell>
+                )
+              }
+            </Resize>
+            <Table.HeaderCell
+              sorted={column === 'debit' ? direction : null}
+              onClick={this.handleSort('debit')}
+            >
+              Debit
+              <Resize>{state => (state.isMobile ? null : ' amount')}</Resize>
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'credit' ? direction : null}
+              onClick={this.handleSort('credit')}
+            >
+              Credit
+              <Resize>{state => (state.isMobile ? null : ' amount')}</Resize>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {_.map(data, ({ description, debit, referenceNumber, credit }) => (
+            <Table.Row key={referenceNumber}>
+              <Table.Cell>{referenceNumber}</Table.Cell>
               <Resize>
                 {state =>
-                  state.isMobile ? null : (
-                    <Table.HeaderCell
-                      sorted={column === 'description' ? direction : null}
-                      onClick={this.handleSort('description')}
-                    >
-                      Description
-                    </Table.HeaderCell>
-                  )
+                  state.isMobile ? null : <Table.Cell>{description}</Table.Cell>
                 }
               </Resize>
-              <Table.HeaderCell
-                sorted={column === 'debit' ? direction : null}
-                onClick={this.handleSort('debit')}
-              >
-                Debit
-                <Resize>{state => (state.isMobile ? null : ' amount')}</Resize>
-              </Table.HeaderCell>
-              <Table.HeaderCell
-                sorted={column === 'credit' ? direction : null}
-                onClick={this.handleSort('credit')}
-              >
-                Credit
-                <Resize>{state => (state.isMobile ? null : ' amount')}</Resize>
-              </Table.HeaderCell>
+              <Table.Cell>{debit}</Table.Cell>
+              <Table.Cell>{credit}</Table.Cell>
             </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {_.map(data, ({ description, debit, referenceNumber, credit }) => (
-              <Table.Row key={referenceNumber}>
-                <Table.Cell>{referenceNumber}</Table.Cell>
-                <Resize>
-                  {state =>
-                    state.isMobile ? null : (
-                      <Table.Cell>{description}</Table.Cell>
-                    )
-                  }
-                </Resize>
-                <Table.Cell>{debit}</Table.Cell>
-                <Table.Cell>{credit}</Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Fragment>
+          ))}
+        </Table.Body>
+      </Table>
     );
   }
 }
+
+function FeeStatementPage() {
+  return (
+    <Fragment>
+      <Header as="h3">Fee statement</Header>
+      <HintMessage>
+        <Message.Item>
+          Select a table header to sort the table using the selected key
+        </Message.Item>
+      </HintMessage>
+      <FeeStatementTable />
+    </Fragment>
+  );
+}
+
+export default FeeStatementPage;
