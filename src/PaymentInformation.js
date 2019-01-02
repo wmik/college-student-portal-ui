@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { Message, Icon, Header } from 'semantic-ui-react';
 
-function BankInfo({ children, color }) {
+function BankInfo({ children, color, success }) {
   return (
-    <Message size="tiny" color={color}>
+    <Message size="tiny" color={color} success={success}>
       <Message.Header>
         Banking information <Icon name="info circle" size="small" />
       </Message.Header>
@@ -23,7 +23,7 @@ function PaymentInformation() {
         </Message.Item>
       </BankInfo>
       <Header as="h3">KCB</Header>
-      <BankInfo color="success">
+      <BankInfo success>
         <Message.Item>
           <b>Account number</b>: 89678243423
         </Message.Item>
