@@ -6,10 +6,9 @@ import {
   Form,
   Image,
   Header,
-  Input,
-  Message
+  Input
 } from 'semantic-ui-react';
-import HintMessage from './HintMessage';
+import RequiredHintMessage from './RequiredHintMessage';
 
 const genderOptions = [
   { key: 'm', text: 'Male', value: 'male' },
@@ -54,11 +53,7 @@ function ProfileForm() {
             Upload new picture
           </Button>
         </Container>
-        <HintMessage>
-          <Message.Item>
-            All fields marked using a red star are required!
-          </Message.Item>
-        </HintMessage>
+        <RequiredHintMessage />
         <Header as="h3">Personal information</Header>
         <Form.Group widths="equal">
           <Form.Input

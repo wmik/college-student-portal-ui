@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component, Fragment } from 'react';
 import { Table, Checkbox, Button, Header, Message } from 'semantic-ui-react';
-import HintMessage from './HintMessage';
+import ColumnSortHintMessage from './ColumnSortHintMessage';
 import Resize from './Resize';
 
 const tableData = [
@@ -104,12 +104,9 @@ function RegisterUnitsPage() {
   return (
     <Fragment>
       <Header as="h3">Register units</Header>
-      <HintMessage>
-        <Message.Item>
-          Select a table header to sort the table using the selected key
-        </Message.Item>
-        <Message.Item>Toggle the slider to select the unit</Message.Item>
-      </HintMessage>
+      <ColumnSortHintMessage>
+        <Message.Item>Click on the switch to select the unit</Message.Item>
+      </ColumnSortHintMessage>
       <RegisterUnitsTable />
     </Fragment>
   );

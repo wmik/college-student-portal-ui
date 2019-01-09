@@ -1,17 +1,13 @@
 import React from 'react';
-import { Grid, Form, Header, Message } from 'semantic-ui-react';
-import HintMessage from './HintMessage';
+import { Grid, Form, Header } from 'semantic-ui-react';
+import RequiredHintMessage from './RequiredHintMessage';
 
 function AccountForm() {
   return (
     <Form>
       <Grid.Row>
         <Header as="h3">Change password</Header>
-        <HintMessage>
-          <Message.Item>
-            All fields marked using a red star are required!
-          </Message.Item>
-        </HintMessage>
+        <RequiredHintMessage />
         <Form.Group widths="equal">
           <Form.Input fluid label="Old password" required />
           <Form.Input fluid label="New password" required />

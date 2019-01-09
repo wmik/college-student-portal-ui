@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
-import { Card, Header, Statistic, Message } from 'semantic-ui-react';
+import { Card, Header, Statistic } from 'semantic-ui-react';
 import AcademicTable from './AcademicTable';
-import HintMessage from './HintMessage';
+import ColumnSortHintMessage from './ColumnSortHintMessage.js';
 
 function Dashboard() {
   return (
     <Fragment>
       <Header as="h3" style={{ marginBottom: '2rem' }}>
-        Quick links
+        Summary
       </Header>
       <Card.Group itemsPerRow={3} stackable>
         <Card href="/app/financials/fee-statement">
@@ -36,11 +36,7 @@ function Dashboard() {
         </Card>
       </Card.Group>
       <Header as="h3">Latest academic performance</Header>
-      <HintMessage>
-        <Message.Item>
-          Select a table header to sort the table using the selected key
-        </Message.Item>
-      </HintMessage>
+      <ColumnSortHintMessage />
       <AcademicTable />
     </Fragment>
   );
