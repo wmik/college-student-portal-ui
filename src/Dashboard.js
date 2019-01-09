@@ -10,7 +10,7 @@ function Dashboard() {
         Quick links
       </Header>
       <Card.Group itemsPerRow={3} stackable>
-        <Card href="/financials/fee-statement">
+        <Card href="/app/financials/fee-statement">
           <Card.Content textAlign="center">
             <Card.Header>Fee balance</Card.Header>
             <Statistic color="green" size="small">
@@ -18,7 +18,7 @@ function Dashboard() {
             </Statistic>
           </Card.Content>
         </Card>
-        <Card href="/academics/register-units">
+        <Card href="/app/academics/register-units">
           <Card.Content textAlign="center">
             <Card.Header>Registered units</Card.Header>
             <Statistic size="small" color="blue">
